@@ -42,7 +42,8 @@ redirect_uri：http://localhost:8090/，与获取code的redirect_uri必须完全
 <br>}
 <br>
 
-2、implicit方式获取token(仅可获取access_token，不能获取refresh_token):<br>
+2、implicit方式获取token:<br>
+注意：仅可获取access_token，不能获取refresh_token。<br>
 
 1)get方式访问：http://localhost:8080/oauth/authorize?client_id=client&response_type=token&redirect_uri=http://localhost:8090/<br>
 注意其中的参数<b>response_type=token</b>，与authorization_code方式的最大不同是response_type变为token了<br>
@@ -54,8 +55,11 @@ redirect_uri：http://localhost:8090/，与获取code的redirect_uri必须完全
 其中的access_token是：17586593-06e8-43be-a0bb-41348af9ae88，由于access_token还没有过期，你可以看到这里获取的access_token与authorization_code方式取得的access_token是一样的，再细心点，会发觉，过期时间变短了。<br>
 <br>
 
-3、refresh_token方式获取token(会得到一个全新的access_token。另外，也可以通过修改设置得到一个全新refresh_token，略):<br>
-1)get或者post方式发送请求至：http://client:secret@localhost:8080/oauth/token<br>
+3、refresh_token方式获取token：<br>
+注意：会得到一个全新的access_token。另外，也可以通过修改AuthServerConfig的configure(AuthorizationServerEndpointsConfigurer endpoints)，设置AuthorizationServerEndpointsConfigurer的reuseRefreshTokens(false)得到一个全新refresh_token)。
+<br>
+1)post方式发送请求至：http://client:secret@localhost:8080/oauth/token<br>
+content-Type是application/x-www-form-urlencoded或者application/form-data都可。<br>
 设置参数：<br>
 grant_type：refresh_token <br>
 refresh_token:[refresh_token值] <br> 
