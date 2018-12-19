@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
  *<br>     "path": "/res/getMsg"
  *<br> }
  *<br>
- * @author LLB
  *
  */
 @RestController()//作为资源服务时，不能带上url，@RestController("/res")是错的，无法识别。只能在方法上注解全路径
