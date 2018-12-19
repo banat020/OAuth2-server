@@ -3,12 +3,11 @@
 基于Springboot与spring-security、spring-security-oauth2实现的（认证服务（security)、资源服务、授权服务）服务器。本例的token保存在内存中，也可以很容易修改为保存在数据库或者Redis中。<br>
 认证服务（security)、资源服务、授权服务，合并在同一个工程中实现。现实项目中，一般是认证服务与授权服务在一个工程中，而资源服务在另一个工程中。<br>
 <br>
-# <b>一、支持三种方式获得access_token，分别是：</b><br>
-authorization_code,implicit,refresh_token<br>
+# 一、获取token <br>
+支持三种方式获得access_token，分别是：authorization_code,implicit,refresh_token<br>
 <br>
-
 在本地测试，将OAuth2-server服务发布在本机8080。<br>
-通过authorization_code与implicit方式类似。<br>
+获取token，authorization_code与implicit的方式类似。<br>
 <br>
 1、authorization_code方式取得access_token:<br>
 <br>
@@ -76,7 +75,7 @@ scope：[多个值用空格分开] <br>
 <br>}
 <br>
 
-# <b>二、通过access_token访问受保护的资源 </b><br>
+# 二、通过access_token访问受保护的资源 <br>
  <br>
 <b>1、获取客户端信息 </b><br>
 有两种方式: <br>
