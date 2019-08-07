@@ -4,19 +4,7 @@ import java.security.Principal;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * 作为OAuth2的资源服务时，不能在Controller(或者RestController)注解上写上URL，因为这样不会被识别，会报404错误。<br>
- *<br> {
- *<br>     "timestamp": 1544580859138,
- *<br>     "status": 404,
- *<br>     "error": "Not Found",
- *<br>     "message": "No message available",
- *<br>     "path": "/res/getMsg"
- *<br> }
- *<br>
- *
- */
-@RestController()//作为资源服务时，不能带上url，@RestController("/res")是错的，无法识别。只能在方法上注解全路径
+@RestController()
 public class ResController {
 	
 	@RequestMapping("/res/getMsg")
